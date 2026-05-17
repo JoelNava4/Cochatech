@@ -4,9 +4,10 @@
 
 // Títulos y subtítulos por vista interna
 const viewTitles = {
-  dashboard: ['Dashboard de Visibilidad', 'Mayo 2026 · 2 emprendimientos activos'],
-  productos:  ['Mis Emprendimientos',      'Gestión de productos y categorías'],
-  perfil:     ['Mi Perfil',                'María Flores · @mariaf'],
+  dashboard:   ['Dashboard de Visibilidad',    'Mayo 2026 · 2 emprendimientos activos'],
+  productos:   ['Mis Emprendimientos',          'Gestión de productos y categorías'],
+  perfil:      ['Mi Perfil',                    'María Flores · @mariaf'],
+  tutoriales:  ['Capacitación',                 'Formación para emprendedoras · 3 módulos disponibles'],
 };
 
 /**
@@ -47,7 +48,35 @@ function switchEmp(el) {
   el.classList.add('active');
 }
 
-// ─── Inicialización ────────────────────────────────────────
+/**
+ * Abre el panel de detalle de un módulo de tutoriales
+ * @param {'videos'|'storytelling'|'greenwashing'} moduleId
+ */
+function openModule(moduleId) {
+  const panel = document.getElementById('tut-detail-panel');
+  // Ocultar todos los detalles
+  document.querySelectorAll('.tut-detail').forEach(d => d.classList.add('hidden'));
+  // Mostrar el solicitado
+  const target = document.getElementById('detail-' + moduleId);
+  if (target) target.classList.remove('hidden');
+  // Mostrar el panel
+  panel.style.display = 'block';
+  // Scroll suave al panel
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/**
+ * Cierra el panel de detalle y vuelve a los módulos
+ */
+function closeModule() {
+  const panel = document.getElementById('tut-detail-panel');
+  panel.style.display = 'none';
+  document.querySelectorAll('.tut-detail').forEach(d => d.classList.add('hidden'));
+  // Scroll suave a los módulos
+  document.querySelector('.tut-modules-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // Period tabs del gráfico de barras

@@ -46,7 +46,7 @@
     <a class="nav-item" href="#">
       <span class="icon">🗺️</span> Mapa
     </a>
-    <a class="nav-item" href="#">
+    <a class="nav-item" onclick="showView('tutoriales', this)">
       <span class="icon">🎓</span> Tutoriales
     </a>
     <a class="nav-item" href="#">
@@ -585,6 +585,301 @@
           </div>
         </div>
       </div><!-- /view-perfil -->
+
+      <!-- ══════════════════════════════════
+           VIEW 4: TUTORIALES / CAPACITACIÓN
+      ══════════════════════════════════ -->
+      <div id="view-tutoriales" class="view">
+
+        <div class="section-head">
+          <h2>Capacitación para Emprendedores</h2>
+          <p>Aprende, crece y diferénciate con nuestros módulos de formación</p>
+        </div>
+
+        <!-- MÓDULOS PRINCIPALES -->
+        <div class="tut-modules-grid">
+
+          <!-- MÓDULO 1: Videos Tutoriales -->
+          <div class="tut-module-card" onclick="openModule('videos')">
+            <div class="tut-module-glow glow-green"></div>
+            <div class="tut-module-icon-wrap icon-green">
+              <div class="tut-module-icon">▶</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Videos Tutoriales</h3>
+              <p>Aprende paso a paso con videos prácticos sobre ventas, marketing digital, gestión y más.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">🎬 24 videos</span>
+                <span class="tut-meta-pill">⏱ ~3 hrs</span>
+                <span class="tut-meta-pill tut-pill-new">Nuevo</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+          <!-- MÓDULO 2: Story Telling -->
+          <div class="tut-module-card" onclick="openModule('storytelling')">
+            <div class="tut-module-glow glow-purple"></div>
+            <div class="tut-module-icon-wrap icon-purple">
+              <div class="tut-module-icon">✦</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Story Telling</h3>
+              <p>Conecta emocionalmente con tus clientes. Aprende a narrar la historia de tu emprendimiento de forma auténtica.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">📖 12 lecciones</span>
+                <span class="tut-meta-pill">⏱ ~1.5 hrs</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+          <!-- MÓDULO 3: Greenwashing -->
+          <div class="tut-module-card" onclick="openModule('greenwashing')">
+            <div class="tut-module-glow glow-orange"></div>
+            <div class="tut-module-icon-wrap icon-orange">
+              <div class="tut-module-icon">🌿</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Diferencia el Greenwashing</h3>
+              <p>Identifica prácticas engañosas en el marketing verde y aprende a comunicar tu sostenibilidad con honestidad.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">🔍 8 módulos</span>
+                <span class="tut-meta-pill">⏱ ~2 hrs</span>
+                <span class="tut-meta-pill tut-pill-hot">Popular</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+        </div>
+
+        <!-- PROGRESO GENERAL -->
+        <div class="tut-progress-bar-card">
+          <div class="tut-progress-header">
+            <div>
+              <h3>Tu progreso general</h3>
+              <span>3 de 44 lecciones completadas</span>
+            </div>
+            <span class="tut-progress-pct">7%</span>
+          </div>
+          <div class="tut-progress-track">
+            <div class="tut-progress-fill" style="width: 7%"></div>
+          </div>
+        </div>
+
+        <!-- PANEL DE DETALLE (se muestra al hacer click en un módulo) -->
+        <div id="tut-detail-panel" class="tut-detail-panel" style="display:none">
+
+          <!-- DETALLE: Videos -->
+          <div id="detail-videos" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>🎬 Videos Tutoriales</h3>
+            </div>
+            <div class="tut-video-grid">
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb green-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">12:34</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Cómo fotografiar tus productos</h4>
+                  <p>Técnicas básicas para fotos profesionales con tu celular.</p>
+                  <span class="tut-vid-tag">📸 Marketing Visual</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb blue-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">08:20</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Precios que venden</h4>
+                  <p>Estrategias de pricing para emprendimientos naturales.</p>
+                  <span class="tut-vid-tag">💰 Ventas</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb purple-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">15:10</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Redes sociales para emprendedoras</h4>
+                  <p>Instagram y TikTok como herramientas de crecimiento.</p>
+                  <span class="tut-vid-tag">📱 Redes Sociales</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb orange-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">10:45</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Gestión básica de inventario</h4>
+                  <p>Controla tus productos y evita quiebres de stock.</p>
+                  <span class="tut-vid-tag">📦 Gestión</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DETALLE: Story Telling -->
+          <div id="detail-storytelling" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>✦ Story Telling</h3>
+            </div>
+            <div class="tut-lesson-list">
+
+              <div class="tut-lesson-item done">
+                <div class="tut-lesson-num done-num">✓</div>
+                <div class="tut-lesson-body">
+                  <h4>¿Qué es el storytelling de marca?</h4>
+                  <p>Fundamentos para contar historias que conectan.</p>
+                </div>
+                <span class="tut-lesson-time">15 min</span>
+              </div>
+
+              <div class="tut-lesson-item active-lesson">
+                <div class="tut-lesson-num active-num">2</div>
+                <div class="tut-lesson-body">
+                  <h4>Tu historia de origen</h4>
+                  <p>Cómo naciste como emprendedora y por qué importa.</p>
+                </div>
+                <span class="tut-lesson-time">20 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">3</div>
+                <div class="tut-lesson-body">
+                  <h4>Personajes y conflictos de tu marca</h4>
+                  <p>Los elementos dramáticos que hacen memorable tu historia.</p>
+                </div>
+                <span class="tut-lesson-time">18 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">4</div>
+                <div class="tut-lesson-body">
+                  <h4>Storytelling en redes sociales</h4>
+                  <p>Adapta tu narrativa a cada plataforma.</p>
+                </div>
+                <span class="tut-lesson-time">25 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">5</div>
+                <div class="tut-lesson-body">
+                  <h4>El cliente como héroe de tu historia</h4>
+                  <p>Pon a tu cliente en el centro del relato.</p>
+                </div>
+                <span class="tut-lesson-time">22 min</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DETALLE: Greenwashing -->
+          <div id="detail-greenwashing" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>🌿 Diferencia el Greenwashing</h3>
+            </div>
+
+            <div class="tut-gw-intro">
+              <div class="tut-gw-alert">
+                <span class="tut-gw-alert-icon">⚠️</span>
+                <div>
+                  <strong>¿Sabes distinguirlo?</strong>
+                  <p>El greenwashing daña la credibilidad del mercado eco. Aprende a identificarlo y a comunicar tu sostenibilidad con evidencia real.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tut-gw-grid">
+
+              <div class="tut-gw-card real">
+                <div class="tut-gw-card-top">
+                  <span class="tut-gw-badge real-badge">✓ Sostenibilidad Real</span>
+                </div>
+                <ul class="tut-gw-list">
+                  <li>🌱 Materiales certificados con documentos</li>
+                  <li>📊 Métricas de impacto ambiental medibles</li>
+                  <li>🔄 Cadena de suministro transparente</li>
+                  <li>🏆 Sellos y certificaciones verificables</li>
+                  <li>📍 Proceso de producción visible y auditable</li>
+                </ul>
+              </div>
+
+              <div class="tut-gw-card fake">
+                <div class="tut-gw-card-top">
+                  <span class="tut-gw-badge fake-badge">✗ Greenwashing</span>
+                </div>
+                <ul class="tut-gw-list">
+                  <li>🚫 Términos vagos: "natural", "eco", "verde"</li>
+                  <li>🚫 Imágenes de naturaleza sin respaldo real</li>
+                  <li>🚫 Colores verdes en packaging sin cambio real</li>
+                  <li>🚫 Promesas sin evidencia ni certificación</li>
+                  <li>🚫 Énfasis en un aspecto, ignorando otros</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="tut-gw-modules">
+              <h4>Módulos del curso</h4>
+              <div class="tut-lesson-list">
+
+                <div class="tut-lesson-item done">
+                  <div class="tut-lesson-num done-num">✓</div>
+                  <div class="tut-lesson-body">
+                    <h4>¿Qué es el greenwashing?</h4>
+                    <p>Definición, historia y casos reales famosos.</p>
+                  </div>
+                  <span class="tut-lesson-time">12 min</span>
+                </div>
+
+                <div class="tut-lesson-item active-lesson">
+                  <div class="tut-lesson-num active-num">2</div>
+                  <div class="tut-lesson-body">
+                    <h4>Las 7 señales de alerta</h4>
+                    <p>Identifica patrones comunes de comunicación engañosa.</p>
+                  </div>
+                  <span class="tut-lesson-time">18 min</span>
+                </div>
+
+                <div class="tut-lesson-item">
+                  <div class="tut-lesson-num">3</div>
+                  <div class="tut-lesson-body">
+                    <h4>Cómo certificar tu sostenibilidad</h4>
+                    <p>Guía de sellos disponibles en Bolivia y Latinoamérica.</p>
+                  </div>
+                  <span class="tut-lesson-time">25 min</span>
+                </div>
+
+                <div class="tut-lesson-item">
+                  <div class="tut-lesson-num">4</div>
+                  <div class="tut-lesson-body">
+                    <h4>Comunicación verde honesta</h4>
+                    <p>Redacta descripciones con impacto real y verificable.</p>
+                  </div>
+                  <span class="tut-lesson-time">20 min</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tut-detail-panel -->
+
+      </div><!-- /view-tutoriales -->
 
     </div><!-- /content -->
   </div><!-- /main -->
