@@ -1,11 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YO Impulso</title>
+
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-box">YO</div>
+      <div>
+        <h2>YO Impulso</h2>
+        <p>Conecta, Apoya, Impulsa</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Mapa</a>
+      <a href="#">Emprendimientos</a>
+      <a href="#">Categorías</a>
+      <a href="#">Información</a>
+      <a href="Paginas/tutoriales.html">Tutoriales</a>
+    </nav>
+
+    <div class="profile">
+      <button class="notif">🔔</button>
+      <img src="https://i.pravatar.cc/100" alt="">
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Emprendimientos</h1>
+      <p>
+        Descubre y apoya emprendimientos increíbles de nuestra comunidad.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h2>+250</h2>
+        <span>Emprendimientos</span>
+      </div>
+
+      <div class="stat-card">
+        <h2>+120</h2>
+        <span>Emprendedores</span>
+      </div>
+
+      <div class="stat-card">
+        <h2>+5k</h2>
+        <span>Apoyos realizados</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters">
+    <div class="left-filters">
+      <button class="category-btn">Todas las categorías</button>
+
+      <select>
+        <option>Más recientes</option>
+        <option>Más populares</option>
+        <option>Mejor valorados</option>
+      </select>
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Buscar emprendimientos..." />
+      <button>Buscar</button>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <main class="cards-container">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag green">Cosmética Natural</span>
+        <h3>ZEPHYRE</h3>
+        <p>Productos capilares naturales para un cuidado saludable.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 124</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag green">Cosmética Natural</span>
+        <h3>Eureka Cosmética</h3>
+        <p>Cosmética orgánica y sostenible para tu bienestar.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 98</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag orange">Artesanías</span>
+        <h3>BRUMA</h3>
+        <p>Artesanías y productos naturales hechos con amor.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 76</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag orange">Arte Botánico</span>
+        <h3>Floraviva</h3>
+        <p>Arte botánico y decoración natural para tu hogar.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 65</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag blue">Servicios</span>
+        <h3>Ampuy</h3>
+        <p>Programas de educación y desarrollo comunitario.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 54</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <span class="tag green">Para el Hogar</span>
+        <h3>ECOFRIENDLY</h3>
+        <p>Productos ecológicos para un hogar más sostenible.</p>
+
+        <div class="card-footer">
+          <span>📍 Tarija, Bolivia</span>
+          <span>❤ 47</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div>
+      <h2>¿Tienes un emprendimiento?</h2>
+      <p>Únete a nuestra comunidad y da a conocer tu proyecto.</p>
+    </div>
+
+    <button>Registrar mi emprendimiento</button>
+  </section>
+
 </body>
 </html>
