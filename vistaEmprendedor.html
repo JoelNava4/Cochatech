@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YO Impulso — Panel del Emprendedor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS separado -->
+  <link rel="stylesheet" href="vistaEmprendedor.css">
+
+  <!-- Sistema de rutas (debe ir en <head> para redirigir rápido) -->
+  <script>
+    // En vistaEmprendedor no hay redirección automática, Routes.init lo gestiona
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      <div class="logo-box">YO</div>
+      <div>
+        <h2>YO Impulso</h2>
+        <p>Conecta, Apoya, Impulsa</p>
+      </div>
+    </div>
+
+    <span class="sidebar-section-label">Principal</span>
+
+    <a class="nav-item active" onclick="showView('dashboard', this)">
+      <span class="icon">📊</span> Dashboard
+    </a>
+    <a class="nav-item" onclick="showView('productos', this)">
+      <span class="icon">🛍️</span> Mis Emprendimientos
+    </a>
+    <a class="nav-item" onclick="showView('perfil', this)">
+      <span class="icon">👤</span> Mi Perfil
+    </a>
+
+    <span class="sidebar-section-label" style="margin-top:28px">Explorar</span>
+
+    <a class="nav-item" href="#">
+      <span class="icon">🗺️</span> Mapa
+    </a>
+    <a class="nav-item" onclick="showView('tutoriales', this)">
+      <span class="icon">🎓</span> Tutoriales
+    </a>
+    <a class="nav-item" href="#">
+      <span class="icon">🪙</span> YO Coins
+    </a>
+
+    <!-- Cambiar a Vista Cliente -->
+    <a class="sidebar-switch go-to-cliente" href="index.html" data-goto="cliente">
+      <span class="icon">🛒</span> Vista Cliente
+    </a>
+
+    <div class="sidebar-footer">
+      <div class="user-mini">
+        <img src="https://i.pravatar.cc/100?img=47" alt="">
+        <div class="user-mini-info">
+          <h4>María Flores</h4>
+          <span>Emprendedora ✦</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 id="page-title">Dashboard de Visibilidad</h1>
+        <span id="page-sub">Mayo 2026 · 2 emprendimientos activos</span>
+      </div>
+      <div class="topbar-right">
+        <!-- Botón cambiar a Vista Cliente -->
+        <a class="btn-switch-view go-to-cliente" href="index.html" data-goto="cliente">🛒 Vista Cliente</a>
+        <button class="btn-notif">🔔<span class="badge"></span></button>
+        <button class="btn-primary" onclick="showView('productos', document.querySelector('.nav-item:nth-child(5)'))">+ Nuevo Producto</button>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ══════════════════════════════════
+           VIEW 1: DASHBOARD
+      ══════════════════════════════════ -->
+      <div id="view-dashboard" class="view active">
+
+        <div class="section-head">
+          <h2>Métricas de Visibilidad</h2>
+          <p>Seguimiento del rendimiento de tus emprendimientos en la plataforma</p>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid">
+
+          <div class="kpi-card green">
+            <div class="kpi-icon">👁️</div>
+            <div class="kpi-value">12,480</div>
+            <div class="kpi-label">Visitas totales</div>
+            <span class="kpi-trend up">↑ 18% este mes</span>
+          </div>
+
+          <div class="kpi-card orange">
+            <div class="kpi-icon">❤️</div>
+            <div class="kpi-value">847</div>
+            <div class="kpi-label">Me gustas recibidos</div>
+            <span class="kpi-trend up">↑ 12% este mes</span>
+          </div>
+
+          <div class="kpi-card blue">
+            <div class="kpi-icon">💬</div>
+            <div class="kpi-value">234</div>
+            <div class="kpi-label">Comentarios</div>
+            <span class="kpi-trend down">↓ 3% este mes</span>
+          </div>
+
+          <div class="kpi-card purple">
+            <div class="kpi-icon">📤</div>
+            <div class="kpi-value">1,102</div>
+            <div class="kpi-label">Compartidos</div>
+            <span class="kpi-trend up">↑ 27% este mes</span>
+          </div>
+
+        </div>
+
+        <!-- CHARTS -->
+        <div class="charts-row">
+
+          <!-- Bar chart -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3>Visitas por semana</h3>
+                <span>Últimas 8 semanas</span>
+              </div>
+              <div class="period-tabs">
+                <button class="period-tab active">7d</button>
+                <button class="period-tab">30d</button>
+                <button class="period-tab">90d</button>
+              </div>
+            </div>
+            <svg class="bar-chart" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#22c55e"/>
+                  <stop offset="100%" stop-color="#16a34a"/>
+                </linearGradient>
+              </defs>
+              <line x1="0" y1="130" x2="480" y2="130" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="0" y1="100" x2="480" y2="100" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="0" y1="70"  x2="480" y2="70"  stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="0" y1="40"  x2="480" y2="40"  stroke="#f3f4f6" stroke-width="1"/>
+              <rect x="14"  y="90"  width="40" height="40"  rx="6" fill="url(#barGrad)" opacity=".7"/>
+              <rect x="72"  y="75"  width="40" height="55"  rx="6" fill="url(#barGrad)" opacity=".75"/>
+              <rect x="130" y="55"  width="40" height="75"  rx="6" fill="url(#barGrad)" opacity=".8"/>
+              <rect x="188" y="80"  width="40" height="50"  rx="6" fill="url(#barGrad)" opacity=".75"/>
+              <rect x="246" y="45"  width="40" height="85"  rx="6" fill="url(#barGrad)" opacity=".85"/>
+              <rect x="304" y="30"  width="40" height="100" rx="6" fill="url(#barGrad)"/>
+              <rect x="362" y="50"  width="40" height="80"  rx="6" fill="url(#barGrad)" opacity=".85"/>
+              <rect x="420" y="20"  width="40" height="110" rx="6" fill="#22c55e" filter="drop-shadow(0 4px 8px rgba(34,197,94,.35))"/>
+              <text x="34"  y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S1</text>
+              <text x="92"  y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S2</text>
+              <text x="150" y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S3</text>
+              <text x="208" y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S4</text>
+              <text x="266" y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S5</text>
+              <text x="324" y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S6</text>
+              <text x="382" y="148" text-anchor="middle" font-size="10" fill="#9ca3af">S7</text>
+              <text x="440" y="148" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">S8</text>
+            </svg>
+          </div>
+
+          <!-- Donut -->
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3>Engagement por emprendimiento</h3>
+                <span>Este mes</span>
+              </div>
+            </div>
+            <div class="donut-wrap">
+              <svg class="donut-svg" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="65" cy="65" r="48" fill="none" stroke="#22c55e" stroke-width="20"
+                  stroke-dasharray="174.5 301" stroke-dashoffset="75" transform="rotate(-90 65 65)"/>
+                <circle cx="65" cy="65" r="48" fill="none" stroke="#3b82f6" stroke-width="20"
+                  stroke-dasharray="84.3 301" stroke-dashoffset="-99.5" transform="rotate(-90 65 65)"/>
+                <circle cx="65" cy="65" r="48" fill="none" stroke="#f97316" stroke-width="20"
+                  stroke-dasharray="42.2 301" stroke-dashoffset="-183.8" transform="rotate(-90 65 65)"/>
+                <circle cx="65" cy="65" r="36" fill="white"/>
+                <text x="65" y="61" text-anchor="middle" font-size="16" font-weight="800" fill="#111827" font-family="Sora,sans-serif">58%</text>
+                <text x="65" y="76" text-anchor="middle" font-size="9" fill="#6b7280">ZEPHYRE</text>
+              </svg>
+              <div class="donut-legend">
+                <div class="legend-item">
+                  <div class="legend-dot" style="background:#22c55e"></div>
+                  <span class="legend-name">ZEPHYRE</span>
+                  <span class="legend-pct">58%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot" style="background:#3b82f6"></div>
+                  <span class="legend-name">EcoFriendly</span>
+                  <span class="legend-pct">28%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot" style="background:#f97316"></div>
+                  <span class="legend-name">Floraviva</span>
+                  <span class="legend-pct">14%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ACTIVITY TABLE -->
+        <div class="activity-card">
+          <div class="chart-header">
+            <h3>Actividad reciente</h3>
+            <span style="font-size:12px;color:var(--green-600);cursor:pointer;font-weight:600">Ver todo →</span>
+          </div>
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Publicación</th>
+                <th>Emprendimiento</th>
+                <th>Tipo</th>
+                <th>Usuario</th>
+                <th>Tendencia</th>
+                <th>Hace</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="row-icon">🌿</span> <strong style="margin-left:8px">Nueva crema capilar</strong></td>
+                <td>ZEPHYRE</td>
+                <td><span class="pill like">❤ Me gusta</span></td>
+                <td>@ana_garcia</td>
+                <td>
+                  <svg class="sparkline" viewBox="0 0 80 28">
+                    <polyline points="0,20 16,15 32,18 48,8 64,5 80,2" fill="none" stroke="#22c55e" stroke-width="2"/>
+                  </svg>
+                </td>
+                <td style="color:var(--gray-400)">5 min</td>
+              </tr>
+              <tr>
+                <td><span class="row-icon">🌱</span> <strong style="margin-left:8px">Bolsas reutilizables</strong></td>
+                <td>EcoFriendly</td>
+                <td><span class="pill view">👁 Visita</span></td>
+                <td>@pedro_m</td>
+                <td>
+                  <svg class="sparkline" viewBox="0 0 80 28">
+                    <polyline points="0,24 16,20 32,22 48,14 64,16 80,10" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                  </svg>
+                </td>
+                <td style="color:var(--gray-400)">12 min</td>
+              </tr>
+              <tr>
+                <td><span class="row-icon">🌸</span> <strong style="margin-left:8px">Arreglo primaveral</strong></td>
+                <td>Floraviva</td>
+                <td><span class="pill share">📤 Compartir</span></td>
+                <td>@lucia_v</td>
+                <td>
+                  <svg class="sparkline" viewBox="0 0 80 28">
+                    <polyline points="0,22 16,18 32,20 48,12 64,9 80,4" fill="none" stroke="#f97316" stroke-width="2"/>
+                  </svg>
+                </td>
+                <td style="color:var(--gray-400)">28 min</td>
+              </tr>
+              <tr>
+                <td><span class="row-icon">💧</span> <strong style="margin-left:8px">Aceite esencial lavanda</strong></td>
+                <td>ZEPHYRE</td>
+                <td><span class="pill comment">💬 Comentario</span></td>
+                <td>@carlos_r</td>
+                <td>
+                  <svg class="sparkline" viewBox="0 0 80 28">
+                    <polyline points="0,18 16,22 32,16 48,20 64,12 80,8" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+                  </svg>
+                </td>
+                <td style="color:var(--gray-400)">1 hora</td>
+              </tr>
+              <tr>
+                <td><span class="row-icon">♻️</span> <strong style="margin-left:8px">Set limpieza hogar eco</strong></td>
+                <td>EcoFriendly</td>
+                <td><span class="pill like">❤ Me gusta</span></td>
+                <td>@sofia_h</td>
+                <td>
+                  <svg class="sparkline" viewBox="0 0 80 28">
+                    <polyline points="0,26 16,22 32,24 48,16 64,14 80,7" fill="none" stroke="#22c55e" stroke-width="2"/>
+                  </svg>
+                </td>
+                <td style="color:var(--gray-400)">2 horas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /view-dashboard -->
+
+      <!-- ══════════════════════════════════
+           VIEW 2: EMPRENDIMIENTOS & PRODUCTOS
+      ══════════════════════════════════ -->
+      <div id="view-productos" class="view">
+
+        <div class="section-head">
+          <h2>Mis Emprendimientos</h2>
+          <p>Gestiona tus productos y contenido por emprendimiento</p>
+        </div>
+
+        <div class="emp-tabs">
+          <div class="emp-tab active" onclick="switchEmp(this)">
+            <span>Todos</span><span class="emp-count">3</span>
+          </div>
+          <div class="emp-tab" onclick="switchEmp(this)">
+            <span class="emp-dot" style="background:#22c55e"></span>
+            ZEPHYRE<span class="emp-count">5</span>
+          </div>
+          <div class="emp-tab" onclick="switchEmp(this)">
+            <span class="emp-dot" style="background:#3b82f6"></span>
+            EcoFriendly<span class="emp-count">4</span>
+          </div>
+          <div class="emp-tab" onclick="switchEmp(this)">
+            <span class="emp-dot" style="background:#f97316"></span>
+            Floraviva<span class="emp-count">3</span>
+          </div>
+        </div>
+
+        <div class="cat-filters">
+          <span style="font-size:12px;font-weight:700;color:var(--gray-500);margin-right:4px">Categoría:</span>
+          <div class="cat-chip active" onclick="filterCat(this)">Todas</div>
+          <div class="cat-chip" onclick="filterCat(this)">Cosmética Natural</div>
+          <div class="cat-chip" onclick="filterCat(this)">Para el Hogar</div>
+          <div class="cat-chip" onclick="filterCat(this)">Arte Botánico</div>
+          <div class="cat-chip" onclick="filterCat(this)">Artesanías</div>
+        </div>
+
+        <div class="products-grid">
+
+          <div class="prod-card">
+            <img class="prod-thumb" src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="prod-body">
+              <div class="prod-tag green">Cosmética Natural</div>
+              <div class="prod-name">Crema Capilar Natural</div>
+              <div class="prod-desc">Hidratación profunda con aceites esenciales de lavanda y argán.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 230 · 👁 1,240</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <img class="prod-thumb" src="https://images.unsplash.com/photo-1498843053639-170ff2122f35?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="prod-body">
+              <div class="prod-tag green">Cosmética Natural</div>
+              <div class="prod-name">Aceite Esencial Lavanda</div>
+              <div class="prod-desc">100% natural, artesanal y sin conservantes artificiales.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 188 · 👁 940</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <img class="prod-thumb" src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="prod-body">
+              <div class="prod-tag blue">Para el Hogar</div>
+              <div class="prod-name">Set Limpieza Eco</div>
+              <div class="prod-desc">Kit completo biodegradable para el cuidado del hogar sostenible.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 144 · 👁 876</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <img class="prod-thumb" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="prod-body">
+              <div class="prod-tag orange">Arte Botánico</div>
+              <div class="prod-name">Arreglo Floral Primaveral</div>
+              <div class="prod-desc">Flores preservadas y secas para decoración de interiores.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 189 · 👁 780</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div class="prod-thumb-placeholder">🌿</div>
+            <div class="prod-body">
+              <div class="prod-tag green">Cosmética Natural</div>
+              <div class="prod-name">Shampoo Sólido</div>
+              <div class="prod-desc">Barra de shampoo natural para cabello rizado y seco.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 92 · 👁 415</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <img class="prod-thumb" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="prod-body">
+              <div class="prod-tag purple">Artesanías</div>
+              <div class="prod-name">Bolsas Reutilizables</div>
+              <div class="prod-desc">Tejidas a mano con algodón orgánico certificado.</div>
+              <div class="prod-footer">
+                <span class="prod-stat">❤ 67 · 👁 330</span>
+                <button class="btn-edit">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-add">
+            <div class="add-icon">＋</div>
+            <span>Agregar producto</span>
+          </div>
+
+        </div>
+
+      </div><!-- /view-productos -->
+
+      <!-- ══════════════════════════════════
+           VIEW 3: PERFIL
+      ══════════════════════════════════ -->
+      <div id="view-perfil" class="view">
+
+        <div class="section-head">
+          <h2>Mi Perfil</h2>
+          <p>Tu información pública en la plataforma</p>
+        </div>
+
+        <div class="coins-card">
+          <div class="coins-icon">🪙</div>
+          <div class="coins-info">
+            <h3>1,850 YO Coins</h3>
+            <p>Nivel Oro · Próximo nivel a 2,000 coins</p>
+          </div>
+          <div class="coins-actions">
+            <button class="btn-coin secondary">Historial</button>
+            <button class="btn-coin primary">Canjear</button>
+          </div>
+        </div>
+
+        <div class="profile-layout">
+
+          <!-- LEFT -->
+          <div>
+            <div class="profile-card">
+              <div class="profile-banner"></div>
+              <div class="profile-avatar-wrap">
+                <img class="profile-avatar" src="https://i.pravatar.cc/200?img=47" alt="">
+              </div>
+              <div class="profile-info">
+                <h2>María Flores</h2>
+                <p class="handle">@mariaf · Cochabamba, Bolivia</p>
+                <span class="profile-badge">⭐ Emprendedora Verificada</span>
+                <div class="profile-divider"></div>
+                <p>Apasionada por los productos naturales y el comercio sostenible. Fundadora de ZEPHYRE y EcoFriendly. 🌱</p>
+                <div class="profile-detail"><span>📍</span><strong>Cochabamba, Bolivia</strong></div>
+                <div class="profile-detail"><span>📅</span><span>Miembro desde <strong>Enero 2025</strong></span></div>
+                <div class="profile-detail"><span>🏪</span><span><strong>3</strong> emprendimientos activos</span></div>
+                <div class="profile-divider"></div>
+                <div class="profile-stats-mini">
+                  <div class="pstat-box"><strong>847</strong><span>Likes</span></div>
+                  <div class="pstat-box"><strong>12k</strong><span>Visitas</span></div>
+                  <div class="pstat-box"><strong>4.9</strong><span>Rating</span></div>
+                </div>
+                <div class="badges-wrap">
+                  <div class="badge-item"><span class="badge-icon">🥇</span>Top Vendedor</div>
+                  <div class="badge-item"><span class="badge-icon">🌿</span>Eco Friendly</div>
+                  <div class="badge-item"><span class="badge-icon">⚡</span>Activa</div>
+                  <div class="badge-item"><span class="badge-icon">🔥</span>Trending</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="profile-right">
+
+            <div class="info-card">
+              <h3>👤 Información Personal</h3>
+              <div class="field-row">
+                <div class="field">
+                  <label>Nombre completo</label>
+                  <div class="field-val">María Elena Flores</div>
+                </div>
+                <div class="field">
+                  <label>Usuario</label>
+                  <div class="field-val">@mariaf</div>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label>Correo electrónico</label>
+                  <div class="field-val">maria@zephyre.bo</div>
+                </div>
+                <div class="field">
+                  <label>Teléfono</label>
+                  <div class="field-val">+591 70000000</div>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label>Ciudad</label>
+                  <div class="field-val">Cochabamba</div>
+                </div>
+                <div class="field">
+                  <label>País</label>
+                  <div class="field-val">Bolivia 🇧🇴</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>🏪 Mis Emprendimientos</h3>
+              <div style="display:flex;flex-direction:column;gap:12px">
+
+                <div style="display:flex;align-items:center;gap:14px;padding:14px;background:#f9fafb;border-radius:14px">
+                  <div style="width:44px;height:44px;border-radius:12px;background:var(--green-100);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🌿</div>
+                  <div style="flex:1">
+                    <div style="font-weight:700;font-size:14px">ZEPHYRE</div>
+                    <div style="font-size:12px;color:var(--gray-500)">Cosmética Natural · 5 productos</div>
+                  </div>
+                  <span class="kpi-trend up" style="font-size:11px">Activo</span>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:14px;padding:14px;background:#f9fafb;border-radius:14px">
+                  <div style="width:44px;height:44px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">♻️</div>
+                  <div style="flex:1">
+                    <div style="font-weight:700;font-size:14px">EcoFriendly</div>
+                    <div style="font-size:12px;color:var(--gray-500)">Para el Hogar · 4 productos</div>
+                  </div>
+                  <span class="kpi-trend up" style="font-size:11px">Activo</span>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:14px;padding:14px;background:#f9fafb;border-radius:14px">
+                  <div style="width:44px;height:44px;border-radius:12px;background:#fff7ed;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🌸</div>
+                  <div style="flex:1">
+                    <div style="font-weight:700;font-size:14px">Floraviva</div>
+                    <div style="font-size:12px;color:var(--gray-500)">Arte Botánico · 3 productos</div>
+                  </div>
+                  <span class="kpi-trend up" style="font-size:11px">Activo</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>⚙️ Configuración de Cuenta</h3>
+              <div class="field-row">
+                <div class="field">
+                  <label>Visibilidad del perfil</label>
+                  <div class="field-val">Público 🌍</div>
+                </div>
+                <div class="field">
+                  <label>Notificaciones</label>
+                  <div class="field-val">Activadas 🔔</div>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label>Idioma</label>
+                  <div class="field-val">Español 🇧🇴</div>
+                </div>
+                <div class="field">
+                  <label>Miembro desde</label>
+                  <div class="field-val">Enero 2025</div>
+                </div>
+              </div>
+              <button class="btn-primary" style="margin-top:14px;width:fit-content">✏️ Editar perfil</button>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /view-perfil -->
+
+      <!-- ══════════════════════════════════
+           VIEW 4: TUTORIALES / CAPACITACIÓN
+      ══════════════════════════════════ -->
+      <div id="view-tutoriales" class="view">
+
+        <div class="section-head">
+          <h2>Capacitación para Emprendedores</h2>
+          <p>Aprende, crece y diferénciate con nuestros módulos de formación</p>
+        </div>
+
+        <!-- MÓDULOS PRINCIPALES -->
+        <div class="tut-modules-grid">
+
+          <!-- MÓDULO 1: Videos Tutoriales -->
+          <div class="tut-module-card" onclick="openModule('videos')">
+            <div class="tut-module-glow glow-green"></div>
+            <div class="tut-module-icon-wrap icon-green">
+              <div class="tut-module-icon">▶</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Videos Tutoriales</h3>
+              <p>Aprende paso a paso con videos prácticos sobre ventas, marketing digital, gestión y más.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">🎬 24 videos</span>
+                <span class="tut-meta-pill">⏱ ~3 hrs</span>
+                <span class="tut-meta-pill tut-pill-new">Nuevo</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+          <!-- MÓDULO 2: Story Telling -->
+          <div class="tut-module-card" onclick="openModule('storytelling')">
+            <div class="tut-module-glow glow-purple"></div>
+            <div class="tut-module-icon-wrap icon-purple">
+              <div class="tut-module-icon">✦</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Story Telling</h3>
+              <p>Conecta emocionalmente con tus clientes. Aprende a narrar la historia de tu emprendimiento de forma auténtica.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">📖 12 lecciones</span>
+                <span class="tut-meta-pill">⏱ ~1.5 hrs</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+          <!-- MÓDULO 3: Greenwashing -->
+          <div class="tut-module-card" onclick="openModule('greenwashing')">
+            <div class="tut-module-glow glow-orange"></div>
+            <div class="tut-module-icon-wrap icon-orange">
+              <div class="tut-module-icon">🌿</div>
+            </div>
+            <div class="tut-module-info">
+              <h3>Diferencia el Greenwashing</h3>
+              <p>Identifica prácticas engañosas en el marketing verde y aprende a comunicar tu sostenibilidad con honestidad.</p>
+              <div class="tut-module-meta">
+                <span class="tut-meta-pill">🔍 8 módulos</span>
+                <span class="tut-meta-pill">⏱ ~2 hrs</span>
+                <span class="tut-meta-pill tut-pill-hot">Popular</span>
+              </div>
+            </div>
+            <div class="tut-module-arrow">→</div>
+          </div>
+
+        </div>
+
+        <!-- PROGRESO GENERAL -->
+        <div class="tut-progress-bar-card">
+          <div class="tut-progress-header">
+            <div>
+              <h3>Tu progreso general</h3>
+              <span>3 de 44 lecciones completadas</span>
+            </div>
+            <span class="tut-progress-pct">7%</span>
+          </div>
+          <div class="tut-progress-track">
+            <div class="tut-progress-fill" style="width: 7%"></div>
+          </div>
+        </div>
+
+        <!-- PANEL DE DETALLE (se muestra al hacer click en un módulo) -->
+        <div id="tut-detail-panel" class="tut-detail-panel" style="display:none">
+
+          <!-- DETALLE: Videos -->
+          <div id="detail-videos" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>🎬 Videos Tutoriales</h3>
+            </div>
+            <div class="tut-video-grid">
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb green-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">12:34</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Cómo fotografiar tus productos</h4>
+                  <p>Técnicas básicas para fotos profesionales con tu celular.</p>
+                  <span class="tut-vid-tag">📸 Marketing Visual</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb blue-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">08:20</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Precios que venden</h4>
+                  <p>Estrategias de pricing para emprendimientos naturales.</p>
+                  <span class="tut-vid-tag">💰 Ventas</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb purple-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">15:10</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Redes sociales para emprendedoras</h4>
+                  <p>Instagram y TikTok como herramientas de crecimiento.</p>
+                  <span class="tut-vid-tag">📱 Redes Sociales</span>
+                </div>
+              </div>
+
+              <div class="tut-video-card">
+                <div class="tut-video-thumb orange-thumb">
+                  <div class="tut-play-btn">▶</div>
+                  <span class="tut-duration">10:45</span>
+                </div>
+                <div class="tut-video-info">
+                  <h4>Gestión básica de inventario</h4>
+                  <p>Controla tus productos y evita quiebres de stock.</p>
+                  <span class="tut-vid-tag">📦 Gestión</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DETALLE: Story Telling -->
+          <div id="detail-storytelling" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>✦ Story Telling</h3>
+            </div>
+            <div class="tut-lesson-list">
+
+              <div class="tut-lesson-item done">
+                <div class="tut-lesson-num done-num">✓</div>
+                <div class="tut-lesson-body">
+                  <h4>¿Qué es el storytelling de marca?</h4>
+                  <p>Fundamentos para contar historias que conectan.</p>
+                </div>
+                <span class="tut-lesson-time">15 min</span>
+              </div>
+
+              <div class="tut-lesson-item active-lesson">
+                <div class="tut-lesson-num active-num">2</div>
+                <div class="tut-lesson-body">
+                  <h4>Tu historia de origen</h4>
+                  <p>Cómo naciste como emprendedora y por qué importa.</p>
+                </div>
+                <span class="tut-lesson-time">20 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">3</div>
+                <div class="tut-lesson-body">
+                  <h4>Personajes y conflictos de tu marca</h4>
+                  <p>Los elementos dramáticos que hacen memorable tu historia.</p>
+                </div>
+                <span class="tut-lesson-time">18 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">4</div>
+                <div class="tut-lesson-body">
+                  <h4>Storytelling en redes sociales</h4>
+                  <p>Adapta tu narrativa a cada plataforma.</p>
+                </div>
+                <span class="tut-lesson-time">25 min</span>
+              </div>
+
+              <div class="tut-lesson-item">
+                <div class="tut-lesson-num">5</div>
+                <div class="tut-lesson-body">
+                  <h4>El cliente como héroe de tu historia</h4>
+                  <p>Pon a tu cliente en el centro del relato.</p>
+                </div>
+                <span class="tut-lesson-time">22 min</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- DETALLE: Greenwashing -->
+          <div id="detail-greenwashing" class="tut-detail hidden">
+            <div class="tut-detail-header">
+              <button class="tut-back-btn" onclick="closeModule()">← Volver</button>
+              <h3>🌿 Diferencia el Greenwashing</h3>
+            </div>
+
+            <div class="tut-gw-intro">
+              <div class="tut-gw-alert">
+                <span class="tut-gw-alert-icon">⚠️</span>
+                <div>
+                  <strong>¿Sabes distinguirlo?</strong>
+                  <p>El greenwashing daña la credibilidad del mercado eco. Aprende a identificarlo y a comunicar tu sostenibilidad con evidencia real.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tut-gw-grid">
+
+              <div class="tut-gw-card real">
+                <div class="tut-gw-card-top">
+                  <span class="tut-gw-badge real-badge">✓ Sostenibilidad Real</span>
+                </div>
+                <ul class="tut-gw-list">
+                  <li>🌱 Materiales certificados con documentos</li>
+                  <li>📊 Métricas de impacto ambiental medibles</li>
+                  <li>🔄 Cadena de suministro transparente</li>
+                  <li>🏆 Sellos y certificaciones verificables</li>
+                  <li>📍 Proceso de producción visible y auditable</li>
+                </ul>
+              </div>
+
+              <div class="tut-gw-card fake">
+                <div class="tut-gw-card-top">
+                  <span class="tut-gw-badge fake-badge">✗ Greenwashing</span>
+                </div>
+                <ul class="tut-gw-list">
+                  <li>🚫 Términos vagos: "natural", "eco", "verde"</li>
+                  <li>🚫 Imágenes de naturaleza sin respaldo real</li>
+                  <li>🚫 Colores verdes en packaging sin cambio real</li>
+                  <li>🚫 Promesas sin evidencia ni certificación</li>
+                  <li>🚫 Énfasis en un aspecto, ignorando otros</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="tut-gw-modules">
+              <h4>Módulos del curso</h4>
+              <div class="tut-lesson-list">
+
+                <div class="tut-lesson-item done">
+                  <div class="tut-lesson-num done-num">✓</div>
+                  <div class="tut-lesson-body">
+                    <h4>¿Qué es el greenwashing?</h4>
+                    <p>Definición, historia y casos reales famosos.</p>
+                  </div>
+                  <span class="tut-lesson-time">12 min</span>
+                </div>
+
+                <div class="tut-lesson-item active-lesson">
+                  <div class="tut-lesson-num active-num">2</div>
+                  <div class="tut-lesson-body">
+                    <h4>Las 7 señales de alerta</h4>
+                    <p>Identifica patrones comunes de comunicación engañosa.</p>
+                  </div>
+                  <span class="tut-lesson-time">18 min</span>
+                </div>
+
+                <div class="tut-lesson-item">
+                  <div class="tut-lesson-num">3</div>
+                  <div class="tut-lesson-body">
+                    <h4>Cómo certificar tu sostenibilidad</h4>
+                    <p>Guía de sellos disponibles en Bolivia y Latinoamérica.</p>
+                  </div>
+                  <span class="tut-lesson-time">25 min</span>
+                </div>
+
+                <div class="tut-lesson-item">
+                  <div class="tut-lesson-num">4</div>
+                  <div class="tut-lesson-body">
+                    <h4>Comunicación verde honesta</h4>
+                    <p>Redacta descripciones con impacto real y verificable.</p>
+                  </div>
+                  <span class="tut-lesson-time">20 min</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tut-detail-panel -->
+
+      </div><!-- /view-tutoriales -->
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+
+  <!-- JavaScript separado -->
+  <script src="vistaEmprendedor.js"></script>
+  <!-- Sistema de rutas -->
+  <script src="routes.js"></script>
+
+</body>
+</html>
