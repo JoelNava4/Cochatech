@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS separado -->
-  <link rel="stylesheet" href="vistaEmprendedor.css">
+  <link rel="stylesheet" href="vistaemprendedor.css">
 
   <!-- Sistema de rutas (debe ir en <head> para redirigir rápido) -->
   <script>
@@ -48,6 +48,9 @@
     </a>
     <a class="nav-item" onclick="showView('tutoriales', this)">
       <span class="icon">🎓</span> Tutoriales
+    </a>
+    <a class="nav-item" onclick="showView('colaboracion', this)">
+      <span class="icon">🤝</span> Colaboración
     </a>
     <a class="nav-item" href="#">
       <span class="icon">🪙</span> YO Coins
@@ -881,11 +884,415 @@
 
       </div><!-- /view-tutoriales -->
 
+      <!-- ══════════════════════════════════
+           VIEW 5: COLABORACIÓN
+      ══════════════════════════════════ -->
+      <div id="view-colaboracion" class="view">
+
+        <div class="section-head">
+          <h2>Red de Colaboración</h2>
+          <p>Conecta con otros emprendedores · Comparte materias primas, herramientas y más</p>
+        </div>
+
+        <!-- TABS PRINCIPALES -->
+        <div class="colab-tabs">
+          <button class="colab-tab active" onclick="switchColabTab(this,'explorar')">🔍 Explorar Ofertas</button>
+          <button class="colab-tab" onclick="switchColabTab(this,'mis-ofertas')">📦 Mis Ofertas</button>
+          <button class="colab-tab" onclick="switchColabTab(this,'solicitudes')">🙋 Solicitudes</button>
+          <button class="colab-tab" onclick="switchColabTab(this,'alianzas')">🤝 Mis Alianzas</button>
+        </div>
+
+        <!-- ── SUB-VIEW: EXPLORAR ─────────────────── -->
+        <div id="colab-explorar" class="colab-subview active">
+
+          <!-- Filtros -->
+          <div class="colab-filters">
+            <div class="colab-search-wrap">
+              <span class="colab-search-icon">🔍</span>
+              <input class="colab-search" type="text" placeholder="Buscar materia prima, herramienta, servicio...">
+            </div>
+            <div class="colab-cat-pills">
+              <div class="colab-pill active" onclick="filterColabCat(this)">Todos</div>
+              <div class="colab-pill" onclick="filterColabCat(this)">🌿 Materias Primas</div>
+              <div class="colab-pill" onclick="filterColabCat(this)">🔧 Herramientas</div>
+              <div class="colab-pill" onclick="filterColabCat(this)">📦 Insumos</div>
+              <div class="colab-pill" onclick="filterColabCat(this)">🚚 Logística</div>
+              <div class="colab-pill" onclick="filterColabCat(this)">💡 Conocimiento</div>
+            </div>
+          </div>
+
+          <!-- Cards de emprendedores con recursos -->
+          <div class="colab-grid">
+
+            <div class="colab-card">
+              <div class="colab-card-header">
+                <img class="colab-avatar" src="https://i.pravatar.cc/100?img=12" alt="">
+                <div class="colab-card-who">
+                  <h4>Sofía Herrera</h4>
+                  <span class="colab-handle">@sofiaho · Quillacollo</span>
+                </div>
+                <span class="colab-badge-type materia">🌿 Materia Prima</span>
+              </div>
+              <div class="colab-resource-name">Aceite de Coco Extra Virgen</div>
+              <p class="colab-resource-desc">Excedente de producción mensual. Prensado en frío, sin conservantes. Ideal para cosmética natural.</p>
+              <div class="colab-resource-meta">
+                <span class="colab-meta-chip">📦 ~5 litros / mes</span>
+                <span class="colab-meta-chip">💰 Precio preferencial</span>
+                <span class="colab-meta-chip">🏪 2 emprendimientos</span>
+              </div>
+              <div class="colab-tags">
+                <span class="colab-tag">Cosmética</span>
+                <span class="colab-tag">Natural</span>
+                <span class="colab-tag">A granel</span>
+              </div>
+              <div class="colab-card-footer">
+                <span class="colab-rating">⭐ 4.9 · 12 colaboraciones</span>
+                <button class="btn-colab-contact" onclick="openColabModal('sofia')">Contactar →</button>
+              </div>
+            </div>
+
+            <div class="colab-card">
+              <div class="colab-card-header">
+                <img class="colab-avatar" src="https://i.pravatar.cc/100?img=25" alt="">
+                <div class="colab-card-who">
+                  <h4>Carla Mendoza</h4>
+                  <span class="colab-handle">@carlamendoza · Cochabamba</span>
+                </div>
+                <span class="colab-badge-type herramienta">🔧 Herramienta</span>
+              </div>
+              <div class="colab-resource-name">Etiquetadora Industrial</div>
+              <p class="colab-resource-desc">Disponible sábados y domingos. Etiquetadora de alta precisión para frascos y bolsas. Incluyo orientación de uso.</p>
+              <div class="colab-resource-meta">
+                <span class="colab-meta-chip">📅 Fines de semana</span>
+                <span class="colab-meta-chip">🤝 Trueque o Bs.</span>
+                <span class="colab-meta-chip">📍 Zona Norte</span>
+              </div>
+              <div class="colab-tags">
+                <span class="colab-tag">Packaging</span>
+                <span class="colab-tag">Préstamo</span>
+              </div>
+              <div class="colab-card-footer">
+                <span class="colab-rating">⭐ 5.0 · 8 colaboraciones</span>
+                <button class="btn-colab-contact" onclick="openColabModal('carla')">Contactar →</button>
+              </div>
+            </div>
+
+            <div class="colab-card">
+              <div class="colab-card-header">
+                <img class="colab-avatar" src="https://i.pravatar.cc/100?img=38" alt="">
+                <div class="colab-card-who">
+                  <h4>Rosa Quispe</h4>
+                  <span class="colab-handle">@rosaquispe · Sacaba</span>
+                </div>
+                <span class="colab-badge-type insumo">📦 Insumo</span>
+              </div>
+              <div class="colab-resource-name">Frascos de Vidrio 100ml</div>
+              <p class="colab-resource-desc">Compra colectiva mensual directamente del proveedor. Precio mayorista para todas las participantes.</p>
+              <div class="colab-resource-meta">
+                <span class="colab-meta-chip">📦 Mín. 50 unid.</span>
+                <span class="colab-meta-chip">💰 30% más barato</span>
+                <span class="colab-meta-chip">🗓️ Pedido mensual</span>
+              </div>
+              <div class="colab-tags">
+                <span class="colab-tag">Compra colectiva</span>
+                <span class="colab-tag">Vidrio</span>
+              </div>
+              <div class="colab-card-footer">
+                <span class="colab-rating">⭐ 4.8 · 23 colaboraciones</span>
+                <button class="btn-colab-contact" onclick="openColabModal('rosa')">Contactar →</button>
+              </div>
+            </div>
+
+            <div class="colab-card">
+              <div class="colab-card-header">
+                <img class="colab-avatar" src="https://i.pravatar.cc/100?img=54" alt="">
+                <div class="colab-card-who">
+                  <h4>Lucía Vargas</h4>
+                  <span class="colab-handle">@luciav · Cochabamba</span>
+                </div>
+                <span class="colab-badge-type logistica">🚚 Logística</span>
+              </div>
+              <div class="colab-resource-name">Reparto compartido en moto</div>
+              <p class="colab-resource-desc">Realizo entregas en zona central y sur de Cochabamba. Comparto el costo de envío entre emprendedoras.</p>
+              <div class="colab-resource-meta">
+                <span class="colab-meta-chip">🗓️ Lunes y Jueves</span>
+                <span class="colab-meta-chip">📍 Centro-Sur</span>
+                <span class="colab-meta-chip">💰 Costo compartido</span>
+              </div>
+              <div class="colab-tags">
+                <span class="colab-tag">Delivery</span>
+                <span class="colab-tag">Compartido</span>
+              </div>
+              <div class="colab-card-footer">
+                <span class="colab-rating">⭐ 4.7 · 17 colaboraciones</span>
+                <button class="btn-colab-contact" onclick="openColabModal('lucia')">Contactar →</button>
+              </div>
+            </div>
+
+            <div class="colab-card">
+              <div class="colab-card-header">
+                <img class="colab-avatar" src="https://i.pravatar.cc/100?img=60" alt="">
+                <div class="colab-card-who">
+                  <h4>Andrea Torrico</h4>
+                  <span class="colab-handle">@andreat · Cochabamba</span>
+                </div>
+                <span class="colab-badge-type conocimiento">💡 Conocimiento</span>
+              </div>
+              <div class="colab-resource-name">Mentoría en Costos y Precios</div>
+              <p class="colab-resource-desc">Soy contadora. Ofrezco sesiones de 1 hora para calcular precios reales, márgenes y costos ocultos de tu emprendimiento.</p>
+              <div class="colab-resource-meta">
+                <span class="colab-meta-chip">⏱ 1 hora por sesión</span>
+                <span class="colab-meta-chip">🤝 Trueque bienvenido</span>
+                <span class="colab-meta-chip">🌐 Presencial / Virtual</span>
+              </div>
+              <div class="colab-tags">
+                <span class="colab-tag">Finanzas</span>
+                <span class="colab-tag">Precios</span>
+                <span class="colab-tag">Mentoría</span>
+              </div>
+              <div class="colab-card-footer">
+                <span class="colab-rating">⭐ 5.0 · 6 colaboraciones</span>
+                <button class="btn-colab-contact" onclick="openColabModal('andrea')">Contactar →</button>
+              </div>
+            </div>
+
+            <div class="colab-card colab-card-add" onclick="switchColabTab(document.querySelector('.colab-tab:nth-child(2)'), 'mis-ofertas')">
+              <div class="colab-add-icon">＋</div>
+              <span>Publicar mi recurso</span>
+              <p>Comparte lo que tienes disponible con la comunidad</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── SUB-VIEW: MIS OFERTAS ─────────────────── -->
+        <div id="colab-mis-ofertas" class="colab-subview">
+
+          <div class="colab-mis-header">
+            <h3>Mis recursos publicados</h3>
+            <button class="btn-primary" onclick="openNewOffer()">+ Nueva oferta</button>
+          </div>
+
+          <div class="mis-ofertas-list">
+
+            <div class="mi-oferta-item">
+              <div class="mi-oferta-icon" style="background:var(--green-100);color:var(--green-700)">🌿</div>
+              <div class="mi-oferta-body">
+                <div class="mi-oferta-name">Lavanda seca orgánica</div>
+                <p class="mi-oferta-desc">Excedente de mi huerto. 200g disponibles este mes.</p>
+                <div class="mi-oferta-meta">
+                  <span class="colab-meta-chip">🌿 Materia Prima</span>
+                  <span class="colab-meta-chip">📦 200g</span>
+                </div>
+              </div>
+              <div class="mi-oferta-stats">
+                <div class="mi-stat"><strong>4</strong><span>interesados</span></div>
+                <div class="mi-stat"><strong>12</strong><span>visitas</span></div>
+              </div>
+              <div class="mi-oferta-actions">
+                <button class="btn-edit">Editar</button>
+                <button class="btn-colab-pause">Pausar</button>
+              </div>
+            </div>
+
+            <div class="mi-oferta-item mi-oferta-paused">
+              <div class="mi-oferta-icon" style="background:#fef3c7;color:#d97706">🔧</div>
+              <div class="mi-oferta-body">
+                <div class="mi-oferta-name">Selladora al vacío</div>
+                <p class="mi-oferta-desc">Disponible para préstamo por días. Solo Zona Norte.</p>
+                <div class="mi-oferta-meta">
+                  <span class="colab-meta-chip">🔧 Herramienta</span>
+                  <span class="colab-meta-chip">⏸ Pausada</span>
+                </div>
+              </div>
+              <div class="mi-oferta-stats">
+                <div class="mi-stat"><strong>1</strong><span>interesados</span></div>
+                <div class="mi-stat"><strong>5</strong><span>visitas</span></div>
+              </div>
+              <div class="mi-oferta-actions">
+                <button class="btn-edit">Editar</button>
+                <button class="btn-colab-contact">Activar</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Formulario nueva oferta -->
+          <div id="new-offer-form" class="new-offer-form" style="display:none">
+            <h3>📢 Publicar nuevo recurso</h3>
+            <div class="offer-form-grid">
+              <div class="offer-field">
+                <label>Nombre del recurso</label>
+                <input type="text" class="offer-input" placeholder="Ej: Aceite esencial de rosas">
+              </div>
+              <div class="offer-field">
+                <label>Categoría</label>
+                <select class="offer-input">
+                  <option>🌿 Materia Prima</option>
+                  <option>🔧 Herramienta</option>
+                  <option>📦 Insumo</option>
+                  <option>🚚 Logística</option>
+                  <option>💡 Conocimiento</option>
+                </select>
+              </div>
+              <div class="offer-field offer-field-full">
+                <label>Descripción</label>
+                <textarea class="offer-input offer-textarea" placeholder="Describe qué ofreces, cantidad, condiciones, modalidad de intercambio..."></textarea>
+              </div>
+              <div class="offer-field">
+                <label>Modalidad</label>
+                <select class="offer-input">
+                  <option>Venta a precio preferencial</option>
+                  <option>Trueque</option>
+                  <option>Préstamo</option>
+                  <option>Compra colectiva</option>
+                  <option>Gratuito / Donación</option>
+                </select>
+              </div>
+              <div class="offer-field">
+                <label>Disponibilidad</label>
+                <input type="text" class="offer-input" placeholder="Ej: Cada mes, fines de semana...">
+              </div>
+            </div>
+            <div class="offer-form-actions">
+              <button class="btn-colab-pause" onclick="closeNewOffer()">Cancelar</button>
+              <button class="btn-primary">Publicar oferta</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── SUB-VIEW: SOLICITUDES ─────────────────── -->
+        <div id="colab-solicitudes" class="colab-subview">
+
+          <div class="solicitudes-intro">
+            <div class="sol-alert">
+              <span>🙋</span>
+              <div>
+                <strong>¿Necesitas algo?</strong>
+                <p>Publica lo que buscas y la comunidad te ayudará a encontrarlo.</p>
+              </div>
+              <button class="btn-primary" style="flex-shrink:0">+ Nueva solicitud</button>
+            </div>
+          </div>
+
+          <div class="sol-list">
+
+            <div class="sol-item">
+              <div class="sol-avatar-wrap">
+                <img src="https://i.pravatar.cc/100?img=33" alt="" class="colab-avatar">
+                <span class="sol-badge">Busca</span>
+              </div>
+              <div class="sol-body">
+                <h4>Almidón de maíz sin gluten</h4>
+                <p class="colab-handle">@valentina · Cochabamba</p>
+                <p class="sol-desc">Necesito al menos 2kg al mes. Acepto compra colectiva o proveedor directo. Para uso cosmético.</p>
+                <div class="colab-tags" style="margin-top:8px">
+                  <span class="colab-tag">Materia Prima</span>
+                  <span class="colab-tag">Urgente</span>
+                </div>
+              </div>
+              <div class="sol-actions">
+                <button class="btn-colab-contact">Tengo esto →</button>
+              </div>
+            </div>
+
+            <div class="sol-item">
+              <div class="sol-avatar-wrap">
+                <img src="https://i.pravatar.cc/100?img=45" alt="" class="colab-avatar">
+                <span class="sol-badge">Busca</span>
+              </div>
+              <div class="sol-body">
+                <h4>Diseñadora de etiquetas</h4>
+                <p class="colab-handle">@patricia · Quillacollo</p>
+                <p class="sol-desc">Busco emprendedora con habilidades de diseño. Puedo hacer trueque con productos de cosmética natural.</p>
+                <div class="colab-tags" style="margin-top:8px">
+                  <span class="colab-tag">Conocimiento</span>
+                  <span class="colab-tag">Trueque</span>
+                </div>
+              </div>
+              <div class="sol-actions">
+                <button class="btn-colab-contact">Tengo esto →</button>
+              </div>
+            </div>
+
+            <div class="sol-item">
+              <div class="sol-avatar-wrap">
+                <img src="https://i.pravatar.cc/100?img=22" alt="" class="colab-avatar">
+                <span class="sol-badge">Busca</span>
+              </div>
+              <div class="sol-body">
+                <h4>Espacio de almacenamiento temporal</h4>
+                <p class="colab-handle">@daniela · Cochabamba</p>
+                <p class="sol-desc">Necesito guardar cajas de producto por 1 semana antes de feria. Zona central preferida.</p>
+                <div class="colab-tags" style="margin-top:8px">
+                  <span class="colab-tag">Espacio</span>
+                  <span class="colab-tag">Temporal</span>
+                </div>
+              </div>
+              <div class="sol-actions">
+                <button class="btn-colab-contact">Tengo esto →</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ── SUB-VIEW: ALIANZAS ─────────────────── -->
+        <div id="colab-alianzas" class="colab-subview">
+
+          <div class="section-head" style="margin-bottom:24px">
+            <h3>Tus alianzas activas</h3>
+            <p>Emprendedoras con quienes ya colaboras regularmente</p>
+          </div>
+
+          <div class="alianzas-grid">
+
+            <div class="alianza-card">
+              <img class="alianza-avatar" src="https://i.pravatar.cc/100?img=12" alt="">
+              <div class="alianza-info">
+                <h4>Sofía Herrera</h4>
+                <p class="colab-handle">@sofiaho · ZEPHYRE</p>
+                <div class="alianza-resource">🌿 Aceite de coco · Mensual</div>
+              </div>
+              <div class="alianza-stats">
+                <div class="alianza-stat"><strong>3</strong><span>pedidos</span></div>
+                <div class="alianza-stat"><strong>100%</strong><span>puntual</span></div>
+              </div>
+              <div class="alianza-badge">Aliada ✦</div>
+            </div>
+
+            <div class="alianza-card">
+              <img class="alianza-avatar" src="https://i.pravatar.cc/100?img=38" alt="">
+              <div class="alianza-info">
+                <h4>Rosa Quispe</h4>
+                <p class="colab-handle">@rosaquispe · Sacaba</p>
+                <div class="alianza-resource">📦 Frascos vidrio · Compra colectiva</div>
+              </div>
+              <div class="alianza-stats">
+                <div class="alianza-stat"><strong>5</strong><span>pedidos</span></div>
+                <div class="alianza-stat"><strong>100%</strong><span>puntual</span></div>
+              </div>
+              <div class="alianza-badge">Aliada ✦</div>
+            </div>
+
+          </div>
+
+          <div class="alianza-empty-tip">
+            <span>💡</span>
+            <p>Cuando ambas partes se contactan y colaboran 3 veces, la alianza se confirma automáticamente.</p>
+          </div>
+
+        </div>
+
+      </div><!-- /view-colaboracion -->
+
     </div><!-- /content -->
   </div><!-- /main -->
 
   <!-- JavaScript separado -->
-  <script src="vistaEmprendedor.js"></script>
+<script src="vistaemprendedor.js"></script>
   <!-- Sistema de rutas -->
   <script src="routes.js"></script>
 

@@ -1393,3 +1393,531 @@ body {
   .tut-module-arrow { display: none; }
   .tut-gw-grid { grid-template-columns: 1fr; }
 }
+/* ═══════════════════════════════════════════════════════════
+   SECCIÓN COLABORACIÓN
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tabs principales ── */
+.colab-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.colab-tab {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--gray-200, #e5e7eb);
+  background: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .2s;
+}
+.colab-tab.active,
+.colab-tab:hover {
+  background: var(--green-500);
+  border-color: var(--green-500);
+  color: white;
+}
+
+/* ── Sub-vistas ── */
+.colab-subview { display: none; }
+.colab-subview.active { display: block; }
+
+/* ── Filtros de explorar ── */
+.colab-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.colab-search-wrap {
+  position: relative;
+  max-width: 480px;
+}
+.colab-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+}
+.colab-search {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  border: 2px solid var(--gray-200, #e5e7eb);
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .2s;
+}
+.colab-search:focus { border-color: var(--green-500); }
+
+.colab-cat-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.colab-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--gray-200, #e5e7eb);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .2s;
+  background: white;
+}
+.colab-pill.active,
+.colab-pill:hover {
+  background: var(--green-50);
+  border-color: var(--green-500);
+  color: var(--green-700);
+}
+
+/* ── Grid de cards ── */
+.colab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── Card individual ── */
+.colab-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1.5px solid #f3f4f6;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.colab-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.colab-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.colab-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.colab-card-who {
+  flex: 1;
+  min-width: 0;
+}
+.colab-card-who h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+.colab-handle {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+/* Badge tipo recurso */
+.colab-badge-type {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.colab-badge-type.materia   { background: #dcfce7; color: #15803d; }
+.colab-badge-type.herramienta { background: #fef3c7; color: #d97706; }
+.colab-badge-type.insumo    { background: #eff6ff; color: #1d4ed8; }
+.colab-badge-type.logistica { background: #fce7f3; color: #be185d; }
+.colab-badge-type.conocimiento { background: #f5f3ff; color: #6d28d9; }
+
+.colab-resource-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.colab-resource-desc {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.colab-resource-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.colab-meta-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  background: var(--gray-100);
+  border-radius: 999px;
+  color: var(--gray-500);
+}
+
+.colab-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.colab-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border: 1.5px solid var(--green-400);
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--green-50);
+}
+
+.colab-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+}
+.colab-rating {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-weight: 600;
+}
+
+/* Botones de colaboración */
+.btn-colab-contact {
+  padding: 8px 16px;
+  background: var(--green-500);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-colab-contact:hover { background: var(--green-600); }
+.btn-colab-pause {
+  padding: 8px 16px;
+  background: white;
+  color: var(--gray-500);
+  border: 2px solid var(--gray-300);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-colab-pause:hover { border-color: var(--gray-400); color: var(--gray-700); }
+
+/* Card "agregar" */
+.colab-card-add {
+  border: 2px dashed var(--green-300, #86efac);
+  background: var(--green-50);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  gap: 8px;
+  color: var(--green-700);
+  min-height: 200px;
+}
+.colab-card-add:hover {
+  background: var(--green-100);
+  border-color: var(--green-500);
+}
+.colab-add-icon {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--green-500);
+}
+.colab-card-add span {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.colab-card-add p {
+  font-size: 12px;
+  color: var(--green-600);
+  margin: 0;
+}
+
+/* ── Mis Ofertas ── */
+.colab-mis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.colab-mis-header h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.mis-ofertas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.mi-oferta-item {
+  background: white;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1.5px solid #f3f4f6;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.mi-oferta-item.mi-oferta-paused { opacity: .65; }
+.mi-oferta-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.mi-oferta-body { flex: 1; min-width: 0; }
+.mi-oferta-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.mi-oferta-desc { font-size: 12px; color: var(--gray-500); margin: 0 0 6px; }
+.mi-oferta-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.mi-oferta-stats {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.mi-stat strong { display: block; font-size: 18px; font-weight: 800; color: var(--green-600); }
+.mi-stat span   { font-size: 10px; color: var(--gray-400); font-weight: 600; }
+.mi-oferta-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* Formulario nueva oferta */
+.new-offer-form {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  border: 2px solid var(--green-200, #bbf7d0);
+  margin-top: 8px;
+}
+.new-offer-form h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.offer-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.offer-field { display: flex; flex-direction: column; gap: 6px; }
+.offer-field-full { grid-column: 1 / -1; }
+.offer-field label { font-size: 12px; font-weight: 700; color: var(--gray-500); }
+.offer-input {
+  padding: 10px 14px;
+  border: 2px solid var(--gray-200, #e5e7eb);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .2s;
+}
+.offer-input:focus { border-color: var(--green-500); }
+.offer-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.offer-form-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+/* ── Solicitudes ── */
+.solicitudes-intro { margin-bottom: 24px; }
+.sol-alert {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--green-50);
+  border: 1.5px solid var(--green-200, #bbf7d0);
+  border-radius: 16px;
+  padding: 18px 20px;
+  font-size: 13px;
+}
+.sol-alert span { font-size: 28px; flex-shrink: 0; }
+.sol-alert strong { display: block; font-size: 14px; margin-bottom: 2px; }
+.sol-alert p { margin: 0; color: var(--gray-500); }
+
+.sol-list { display: flex; flex-direction: column; gap: 16px; }
+.sol-item {
+  background: white;
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1.5px solid #f3f4f6;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.sol-avatar-wrap { position: relative; flex-shrink: 0; }
+.sol-badge {
+  position: absolute;
+  bottom: -4px; left: 50%; transform: translateX(-50%);
+  background: var(--orange);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.sol-body { flex: 1; min-width: 0; }
+.sol-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.sol-desc { font-size: 13px; color: var(--gray-500); margin: 6px 0 0; }
+.sol-actions { flex-shrink: 0; padding-top: 4px; }
+
+/* ── Alianzas ── */
+.alianzas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.alianza-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px 20px;
+  border: 2px solid var(--green-100);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.alianza-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-400), var(--green-600));
+}
+.alianza-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--green-200, #bbf7d0);
+}
+.alianza-info { flex: 1; min-width: 0; }
+.alianza-info h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.alianza-resource {
+  font-size: 12px;
+  color: var(--green-700);
+  font-weight: 600;
+  margin-top: 6px;
+}
+.alianza-stats {
+  display: flex;
+  gap: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.alianza-stat strong { display: block; font-size: 16px; font-weight: 800; color: var(--green-600); }
+.alianza-stat span   { font-size: 10px; color: var(--gray-400); font-weight: 600; }
+.alianza-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, var(--green-500), var(--green-700));
+  color: white;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.alianza-empty-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+.alianza-empty-tip span { font-size: 20px; flex-shrink: 0; }
+.alianza-empty-tip p { margin: 0; }
+
+/* ── Modal de contacto ── */
+.colab-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn .2s forwards;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+.colab-modal {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  max-width: 460px;
+  width: calc(100% - 40px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  transform: translateY(20px);
+  animation: slideUp .25s forwards;
+}
+@keyframes slideUp { to { transform: translateY(0); } }
+.colab-modal h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.colab-modal p { font-size: 13px; color: var(--gray-500); margin-bottom: 20px; }
+.colab-modal textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+  margin-bottom: 16px;
+}
+.colab-modal textarea:focus { border-color: var(--green-500); }
+.colab-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
