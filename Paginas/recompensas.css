@@ -1,0 +1,358 @@
+/* recompensas.css */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f5f7f6;
+  color:#111827;
+}
+
+/* NAVBAR */
+
+.navbar{
+  background:linear-gradient(90deg,#059669,#16a34a);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 60px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-box{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:white;
+  color:#16a34a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+nav .active{
+  background:rgba(255,255,255,.15);
+  padding:10px 18px;
+  border-radius:12px;
+}
+
+/* HERO */
+
+.hero{
+  padding:70px 60px;
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:50px;
+  align-items:center;
+}
+
+.hero-badge{
+  background:#dcfce7;
+  color:#15803d;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+.hero h1{
+  margin-top:24px;
+  font-size:64px;
+  line-height:1.1;
+}
+
+.hero p{
+  margin-top:20px;
+  color:#6b7280;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.coins-card{
+  background:white;
+  padding:40px;
+  border-radius:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.coins-card h2{
+  font-size:60px;
+  color:#16a34a;
+}
+
+.coins-card span{
+  color:#6b7280;
+  font-weight:600;
+}
+
+.progress-container{
+  width:100%;
+  height:16px;
+  background:#d1d5db;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+.progress-bar{
+  width:75%;
+  height:100%;
+  background:linear-gradient(90deg,#16a34a,#22c55e);
+}
+
+.coins-card p{
+  margin-top:16px;
+  color:#6b7280;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:0 60px 70px;
+}
+
+.section-title{
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:42px;
+}
+
+.section-title p{
+  margin-top:12px;
+  color:#6b7280;
+}
+
+/* EARN GRID */
+
+.earn-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.earn-card{
+  background:white;
+  padding:35px;
+  border-radius:28px;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.3s;
+}
+
+.earn-card:hover{
+  transform:translateY(-6px);
+}
+
+.icon{
+  font-size:42px;
+}
+
+.earn-card h3{
+  margin-top:20px;
+  font-size:24px;
+}
+
+.earn-card p{
+  margin-top:12px;
+  color:#6b7280;
+  line-height:1.7;
+}
+
+.earn-card span{
+  margin-top:20px;
+  display:inline-block;
+  background:#dcfce7;
+  color:#15803d;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+/* REWARDS */
+
+.rewards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.reward-card{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:.3s;
+}
+
+.reward-card:hover{
+  transform:translateY(-8px);
+}
+
+.reward-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.reward-content{
+  padding:24px;
+}
+
+.reward-content h3{
+  font-size:28px;
+}
+
+.reward-content p{
+  margin-top:12px;
+  color:#6b7280;
+  line-height:1.7;
+}
+
+.reward-footer{
+  margin-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.reward-footer span{
+  font-weight:700;
+  color:#16a34a;
+}
+
+.reward-footer button{
+  background:linear-gradient(90deg,#16a34a,#22c55e);
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* LEADERBOARD */
+
+.leaderboard{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.leader-card{
+  background:white;
+  padding:26px;
+  border-radius:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.leader-card h3{
+  font-size:24px;
+}
+
+.leader-card span{
+  color:#16a34a;
+  font-weight:700;
+}
+
+/* MISSIONS */
+
+.missions{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.mission-card{
+  background:white;
+  padding:24px;
+  border-radius:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.mission-card p{
+  margin-top:8px;
+  color:#6b7280;
+}
+
+.mission-card button{
+  background:linear-gradient(90deg,#16a34a,#22c55e);
+  color:white;
+  border:none;
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .navbar,
+  .hero,
+  .section{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .navbar{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .mission-card,
+  .leader-card{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+}

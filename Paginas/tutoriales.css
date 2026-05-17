@@ -271,6 +271,11 @@ nav .active{
   cursor:pointer;
 }
 
+.tutorial-footer button a{
+  text-decoration: none;
+  color:white;
+}
+
 /* CTA */
 
 .cta-section{

@@ -1,0 +1,323 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f5f7f6;
+  color:#111827;
+}
+
+/* NAVBAR */
+
+.navbar{
+  background:linear-gradient(90deg,#059669,#16a34a);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 60px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-box{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:white;
+  color:#16a34a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+nav .active{
+  background:rgba(255,255,255,.15);
+  padding:10px 18px;
+  border-radius:12px;
+}
+
+/* HERO */
+
+.product-hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  padding:70px 60px;
+}
+
+.product-tag{
+  background:#dcfce7;
+  color:#15803d;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.product-info h1{
+  margin-top:24px;
+  font-size:70px;
+}
+
+.product-info p{
+  margin-top:20px;
+  color:#6b7280;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.product-stats{
+  margin-top:35px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.stat-box{
+  background:white;
+  padding:24px;
+  border-radius:20px;
+  min-width:160px;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.stat-box h3{
+  color:#16a34a;
+  font-size:28px;
+}
+
+.video-container video{
+  width:100%;
+  border-radius:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* SECTION TITLE */
+
+.section-title{
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:42px;
+}
+
+.section-title p{
+  margin-top:12px;
+  color:#6b7280;
+}
+
+/* CAROUSEL */
+
+.carousel-section{
+  padding:0 60px 70px;
+}
+
+.carousel{
+  position:relative;
+  max-width:100%;
+}
+
+.slides{
+  display:none;
+}
+
+.slides img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:30px;
+}
+
+.fade{
+  animation:fade 1s;
+}
+
+@keyframes fade{
+  from{opacity:.4}
+  to{opacity:1}
+}
+
+/* UPLOAD */
+
+.upload-section{
+  padding:0 60px 70px;
+}
+
+.upload-box{
+  background:white;
+  padding:50px;
+  border-radius:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  text-align:center;
+}
+
+.upload-box h2{
+  font-size:42px;
+}
+
+.upload-box p{
+  margin-top:16px;
+  color:#6b7280;
+}
+
+.upload-buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.upload-btn{
+  background:linear-gradient(90deg,#16a34a,#22c55e);
+  color:white;
+  padding:18px 28px;
+  border-radius:16px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.upload-btn.secondary{
+  background:white;
+  color:#16a34a;
+  border:2px solid #16a34a;
+}
+
+/* FEED */
+
+.feed-section{
+  padding:0 60px 70px;
+}
+
+.feed-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.post-card{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.post-header{
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.post-header img{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.post-header h4{
+  font-size:17px;
+}
+
+.post-header span{
+  color:#6b7280;
+  font-size:14px;
+}
+
+.post-image,
+.post-video{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.post-content{
+  padding:20px;
+}
+
+.post-content p{
+  line-height:1.7;
+}
+
+.post-actions{
+  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  color:#6b7280;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+  .product-hero{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .navbar,
+  .product-hero,
+  .carousel-section,
+  .upload-section,
+  .feed-section{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .navbar{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .product-info h1{
+    font-size:46px;
+  }
+
+  .slides img{
+    height:320px;
+  }
+
+  .post-image,
+  .post-video{
+    height:320px;
+  }
+
+  .upload-box{
+    padding:30px;
+  }
+
+}
